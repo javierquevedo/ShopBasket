@@ -3,3 +3,7 @@
 import UIKit
 
 var str = "Hello, playground"
+
+var number:Float = 3.67250
+print(number)
+

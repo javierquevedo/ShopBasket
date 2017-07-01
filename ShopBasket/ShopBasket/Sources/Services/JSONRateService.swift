@@ -8,12 +8,12 @@
 
 import Foundation
 
-class JQCurrencyService {
+class JSONRateService {
     init() {
         
     }
     
-    func getAvailableCurrencies() {
+    func getCurrency() {
         do {
             if let file = Bundle.main.url(forResource: "currenciesMock", withExtension: "json") {
                 let data = try Data(contentsOf: file)
@@ -24,7 +24,6 @@ class JQCurrencyService {
         } catch {
             print(error.localizedDescription)
         }
-       
     }
 }
 

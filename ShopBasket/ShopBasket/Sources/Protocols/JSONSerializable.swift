@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol JSONSerializable {
+    mutating func fromJson(jsonObject:Any)
+    func toJson()->Any?
+}
