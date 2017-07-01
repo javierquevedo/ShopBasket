@@ -17,6 +17,8 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var rateService:JSONRateService = JSONRateService()
+        rateService.getCurrency()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

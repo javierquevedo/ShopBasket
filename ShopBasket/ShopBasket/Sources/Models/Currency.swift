@@ -26,11 +26,11 @@ struct Currency: Exchangeable {
     init(jsonObject:Any) throws {
         guard let data:[String:Any] = jsonObject as? [String:Any],
             var  rates = data["quotes"] as? [String: Double],
-            let code = data["source"] as? String
+            let code = data["source"] as? String,
+            let success = data["success"] as? Bool
             else {
             throw (CurrencyError.InvalidJson)
         }
-        
         let keys = Array(rates.keys)
         for exchangeCode:String in keys {
             if let entry = rates.removeValue(forKey: exchangeCode) {
