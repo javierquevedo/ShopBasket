@@ -10,8 +10,9 @@
 		A7552DFB1F08D7CB00BAADA2 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFA1F08D7CB00BAADA2 /* CurrencyViewModel.swift */; };
 		A7552DFD1F09239800BAADA2 /* BasketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFC1F09239800BAADA2 /* BasketTests.swift */; };
 		A7552DFE1F09351F00BAADA2 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A791C3271F07D75200A7666E /* Basket.swift */; };
+		A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */; };
+		A7552E021F09441C00BAADA2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552E011F09441C00BAADA2 /* ShopViewController.swift */; };
 		A77BAC841F079A590023F2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BAC831F079A590023F2CD /* AppDelegate.swift */; };
-		A77BAC861F079A590023F2CD /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BAC851F079A590023F2CD /* ShopViewController.swift */; };
 		A77BAC891F079A590023F2CD /* ShopBasket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77BAC871F079A590023F2CD /* ShopBasket.storyboard */; };
 		A77BAC8B1F079A590023F2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77BAC8A1F079A590023F2CD /* Assets.xcassets */; };
 		A77BAC8E1F079A590023F2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77BAC8C1F079A590023F2CD /* LaunchScreen.storyboard */; };
@@ -48,9 +49,10 @@
 /* Begin PBXFileReference section */
 		A7552DFA1F08D7CB00BAADA2 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyViewModel.swift; path = Sources/ViewModels/CurrencyViewModel.swift; sourceTree = "<group>"; };
 		A7552DFC1F09239800BAADA2 /* BasketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTests.swift; sourceTree = "<group>"; };
+		A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencySelectorViewController.swift; path = Sources/Controllers/CurrencySelectorViewController.swift; sourceTree = "<group>"; };
+		A7552E011F09441C00BAADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopViewController.swift; path = Sources/Controllers/ShopViewController.swift; sourceTree = "<group>"; };
 		A77BAC801F079A590023F2CD /* ShopBasket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopBasket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77BAC831F079A590023F2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A77BAC851F079A590023F2CD /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		A77BAC881F079A590023F2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShopBasket.storyboard; sourceTree = "<group>"; };
 		A77BAC8A1F079A590023F2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A77BAC8D1F079A590023F2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,7 +171,8 @@
 		A77BACB31F079A7E0023F2CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A77BAC851F079A590023F2CD /* ShopViewController.swift */,
+				A7552E011F09441C00BAADA2 /* ShopViewController.swift */,
+				A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -343,8 +346,9 @@
 			files = (
 				A791C3211F07A98700A7666E /* Currency.swift in Sources */,
 				A791C3281F07D75200A7666E /* Basket.swift in Sources */,
-				A77BAC861F079A590023F2CD /* ShopViewController.swift in Sources */,
+				A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */,
 				A7552DFB1F08D7CB00BAADA2 /* CurrencyViewModel.swift in Sources */,
+				A7552E021F09441C00BAADA2 /* ShopViewController.swift in Sources */,
 				A77BACC61F07A3E30023F2CD /* Exchangeable.swift in Sources */,
 				A77BAC841F079A590023F2CD /* AppDelegate.swift in Sources */,
 				A77BACB71F079B4E0023F2CD /* JSONRateService.swift in Sources */,

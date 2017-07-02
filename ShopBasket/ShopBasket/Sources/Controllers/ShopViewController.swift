@@ -58,5 +58,6 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
             return 0
         }
     }
+    
 }
 
