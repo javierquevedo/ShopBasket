@@ -96,6 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A77692DA1F096D5C00201309 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A77BAC771F079A590023F2CD = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +127,7 @@
 		A77BAC821F079A590023F2CD /* ShopBasket */ = {
 			isa = PBXGroup;
 			children = (
+				A77692DA1F096D5C00201309 /* Views */,
 				A77BACBE1F07A36D0023F2CD /* Protocols */,
 				A77BACB51F079AC70023F2CD /* Services */,
 				A77BACB31F079A7E0023F2CD /* Controllers */,

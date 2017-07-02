@@ -27,8 +27,7 @@
                                 <items>
                                     <barButtonItem title="USD" id="wgq-P0-QXe">
                                         <connections>
-                                            <action selector="onCurrencyTap:" destination="BYZ-38-t0r" id="QFZ-NU-eit"/>
-                                            <segue destination="Baj-z6-d3L" kind="presentation" id="OZK-4D-u8L"/>
+                                            <action selector="onCurrencyButtonTapped:" destination="BYZ-38-t0r" id="Rv9-Fw-tHh"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -55,15 +54,18 @@
                             <constraint firstItem="Iss-lI-sPU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oOd-uP-m2r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="Baj-z6-d3L" kind="presentation" identifier="CurrencySelectorModal" id="VgG-Hl-tuk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23.199999999999999" y="36.431784107946029"/>
         </scene>
-        <!--View Controller-->
+        <!--Currency Selector View Controller-->
         <scene sceneID="hva-Iz-3fT">
             <objects>
-                <viewController id="Baj-z6-d3L" sceneMemberID="viewController">
+                <viewController id="Baj-z6-d3L" customClass="CurrencySelectorViewController" customModule="ShopBasket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZMW-yP-2lr"/>
                         <viewControllerLayoutGuide type="bottom" id="2eY-uA-yKl"/>
@@ -76,7 +78,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Z3-LE-hoh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" id="7Z3-LE-hoh">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Z3-LE-hoh" id="7gD-18-HIc">
@@ -119,6 +121,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Baj-z6-d3L" id="Gka-gB-HCf"/>
+                                    <outlet property="delegate" destination="Baj-z6-d3L" id="foq-Zz-rKy"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baH-sg-Oqb">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
@@ -165,7 +171,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58Z-2h-ZPU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Close" id="E8F-S7-vTh"/>
+                                    <barButtonItem title="Close" id="E8F-S7-vTh">
+                                        <connections>
+                                            <action selector="onCloseButtonTapped:" destination="Baj-z6-d3L" id="F7R-ls-JVj"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -183,6 +193,9 @@
                             <constraint firstAttribute="trailing" secondItem="58Z-2h-ZPU" secondAttribute="trailing" id="rYc-XS-yHG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currenciesTableView" destination="BOH-sf-pVt" id="9n4-0M-2q2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVC-GM-Iff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

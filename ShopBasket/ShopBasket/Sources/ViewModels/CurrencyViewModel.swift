@@ -11,6 +11,7 @@ import Foundation
 class CurrencyViewModel {
     
     public var currency:Currency
+    public var currentCode:String
     
     public var exchangesCount:Int {
         get {
@@ -18,12 +19,13 @@ class CurrencyViewModel {
         }
     }
     
-    init(currency:Currency) {
-            self.currency = currency
+    init(currency:Currency, code:String = "USD") {
+        self.currency = currency
+        self.currentCode = code
     }
     
     func currencyCode(index:Int) -> String {
-            return self.currency.exchanges[index]
+        return self.currency.exchanges[index]
     }
     
     func currencyRate(index:Int) -> Double {

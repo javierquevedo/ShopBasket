@@ -21,7 +21,6 @@ class JSONRateService {
     
     private let API_KEY:String = "55566fb31213c62ab156c3e0301403ff"
     private let API_URL:String = "http://www.apilayer.net/api/live?access_key="
-    
     private var updatedHandler:((Currency, JSONRateServiceStatus, Error?)->Void)?
     private var shouldStop:Bool = false
     private var pollInterval:TimeInterval = DefaultRatesPollInterval
