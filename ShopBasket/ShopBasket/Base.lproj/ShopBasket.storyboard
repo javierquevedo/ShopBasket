@@ -65,7 +65,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currenciesTableView" destination="eVe-zi-RJ5" id="KtV-SN-YwV"/>
+                        <outlet property="currenciesTableView" destination="eVe-zi-RJ5" id="fYE-s3-yK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

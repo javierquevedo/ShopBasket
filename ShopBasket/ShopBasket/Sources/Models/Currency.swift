@@ -10,7 +10,7 @@ struct Currency: Exchangeable {
     
     enum CurrencyError: String, Error {
         case InvalidJson = "Invalid Json."
-}
+    }
     
     public let rates:[String: Double]
     public let code:String
@@ -26,18 +26,17 @@ struct Currency: Exchangeable {
     init(jsonObject:Any) throws {
         guard let data:[String:Any] = jsonObject as? [String:Any],
             var  rates = data["quotes"] as? [String: Double],
-            let code = data["source"] as? String,
-            let success = data["success"] as? Bool
+            let code = data["source"] as? String
             else {
             throw (CurrencyError.InvalidJson)
         }
+        
         let keys = Array(rates.keys)
         for exchangeCode:String in keys {
             if let entry = rates.removeValue(forKey: exchangeCode) {
                 let index = exchangeCode.index(exchangeCode.startIndex, offsetBy: code.characters.count)
                 rates[exchangeCode.substring(from: index)] = entry
             }
-            
         }
         rates.removeValue(forKey: code) // Remove self conversion
         self.init(code:code, rates:rates)

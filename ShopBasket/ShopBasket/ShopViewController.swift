@@ -10,15 +10,19 @@ import UIKit
 
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-    @IBAction func onCurrencyTap(_ sender: Any) {
-        
-    }
-    @IBOutlet weak var currenciesTableView: UITableView!
+    let rateService:JSONRateService = JSONRateService()
+    var currency:Currency = Currency(code:"USD", rates:[:])
     
+    @IBOutlet weak var currenciesTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        var rateService:JSONRateService = JSONRateService()
-        rateService.getCurrency()
+        
+        rateService.getCurrency { (currency, status, error) in
+            self.currency = currency
+            self.currenciesTableView.reloadData()
+        }
+        //rateService.getCurrency()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,17 +32,21 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
 
+    @IBAction func onCurrencyTap(_ sender: Any) {
+        
+    }
+    
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath)
-        cell.textLabel!.text = "JAVI"
+        cell.textLabel!.text = currency.exchanges[indexPath.row]
         return cell
     }
     
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return currency.rates.count
     }
 }
 
