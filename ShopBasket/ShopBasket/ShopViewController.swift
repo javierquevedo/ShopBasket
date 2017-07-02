@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShopViewController.swift
 //  ShopBasket
 //
 //  Created by Javier Quevedo on 01.07.17.
@@ -11,19 +11,26 @@ import UIKit
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     let rateService:JSONRateService = JSONRateService()
-    var currency:Currency = Currency(code:"USD", rates:[:])
-    
+    var currencyViewModel :CurrencyViewModel?
+
     @IBOutlet weak var currenciesTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        rateService.getCurrency { (currency, status, error) in
-            self.currency = currency
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        rateService.start { (currency, status, error) in
+            self.currencyViewModel = CurrencyViewModel(currency: currency)
             self.currenciesTableView.reloadData()
         }
-        //rateService.getCurrency()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        rateService.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,22 +38,23 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
 
-
-    @IBAction func onCurrencyTap(_ sender: Any) {
-        
-    }
-    
-    
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath)
-        cell.textLabel!.text = currency.exchanges[indexPath.row]
+        
+        cell.textLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
+        print(self.currencyViewModel!.currencyRate(index: indexPath.row))
+       // cell.detailTextLabel!.text = "\(self.currencyViewModel!.currencyRate(index: indexPath.row))"
         return cell
     }
     
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currency.rates.count
+        if let c = self.currencyViewModel {
+                return c.exchangesCount
+        }else {
+            return 0
+        }
     }
 }
 

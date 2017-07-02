@@ -17,14 +17,14 @@ class JSONRateService {
         case failed = 3
     }
     
+    public static let DefaultRatesPollInterval:TimeInterval = 60
     
-    
-    private let API_KEY:String = INSERT YOUR KEY HERE
+    private let API_KEY:String = "55566fb31213c62ab156c3e0301403ff"
     private let API_URL:String = "http://www.apilayer.net/api/live?access_key="
     
-    init() {
-        
-    }
+    private var updatedHandler:((Currency, JSONRateServiceStatus, Error?)->Void)?
+    private var shouldStop:Bool = false
+    private var pollInterval:TimeInterval = DefaultRatesPollInterval
     
     func getCurrency(completed:@escaping (Currency, JSONRateServiceStatus, Error?)->Void) {
         let url = URL(string:"\(API_URL)\(API_KEY)")
@@ -50,6 +50,32 @@ class JSONRateService {
                 completed(self.getMockCurrency(), .invalidData, error)            }
         }
         task.resume()
+    }
+    
+    
+    func start(_ time:TimeInterval = DefaultRatesPollInterval,  updated:(@escaping (Currency, JSONRateServiceStatus, Error?)->Void)) {
+        shouldStop = false
+        pollInterval = time
+        self.updatedHandler = updated
+        self.poll()
+    }
+    
+    func stop() {
+        shouldStop = true
+    }
+    
+    
+    private func poll() {
+        getCurrency { (currency, status, error) in
+            if let handler = self.updatedHandler {
+                handler(currency, status, error)
+            }
+            if (!self.shouldStop) {
+                DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + self.pollInterval, execute: {
+                    self.poll()
+                })
+            }
+        }
     }
     
     private func getMockCurrency() -> Currency {
