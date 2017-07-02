@@ -32,41 +32,14 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVe-zi-RJ5">
-                                <rect key="frame" x="0.0" y="427" width="375" height="196"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="196" id="mo7-9r-MBN"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" id="tye-Ur-pOR">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tye-Ur-pOR" id="eUH-08-hm3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Su4-BP-2mH"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XSl-gn-h4C"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eVe-zi-RJ5" secondAttribute="trailing" id="P7S-2F-fXB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Iss-lI-sPU" secondAttribute="bottom" id="YOK-LS-Gg0"/>
                             <constraint firstAttribute="trailing" secondItem="Iss-lI-sPU" secondAttribute="trailing" id="gdC-KF-1uX"/>
                             <constraint firstItem="Iss-lI-sPU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oOd-uP-m2r"/>
-                            <constraint firstItem="eVe-zi-RJ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tbg-R4-vTi"/>
-                            <constraint firstItem="Iss-lI-sPU" firstAttribute="top" secondItem="eVe-zi-RJ5" secondAttribute="bottom" id="vFx-nE-Aoh"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="currenciesTableView" destination="eVe-zi-RJ5" id="fYE-s3-yK4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

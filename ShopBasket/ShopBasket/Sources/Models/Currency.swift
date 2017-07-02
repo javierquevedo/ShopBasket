@@ -47,10 +47,10 @@ struct Currency: Exchangeable {
     }
     
     func exchange(_ amount:Double, code:String) -> Double? {
-        var val:Double? = nil
+        var rate = 1.0
         if let c = rates[code] {
-            val = c * amount
+           rate = c
         }
-        return val;
+        return rate * amount;
     }
 }

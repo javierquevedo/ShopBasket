@@ -24,7 +24,9 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidAppear(animated)
         rateService.start { (currency, status, error) in
             self.currencyViewModel = CurrencyViewModel(currency: currency)
-            self.currenciesTableView.reloadData()
+            DispatchQueue.main.async(execute: { () -> Void in
+                //self.currenciesTableView.reloadData()
+            })
         }
     }
     

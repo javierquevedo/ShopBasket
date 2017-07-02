@@ -60,11 +60,6 @@ class JSONRateService {
         self.poll()
     }
     
-    func stop() {
-        shouldStop = true
-    }
-    
-    
     private func poll() {
         getCurrency { (currency, status, error) in
             if let handler = self.updatedHandler {
@@ -76,6 +71,10 @@ class JSONRateService {
                 })
             }
         }
+    }
+    
+    func stop() {
+        shouldStop = true
     }
     
     private func getMockCurrency() -> Currency {
