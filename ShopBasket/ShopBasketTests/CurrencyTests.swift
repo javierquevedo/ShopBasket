@@ -41,7 +41,7 @@ class CurrencyTests: XCTestCase {
             let currency = try Currency(jsonObject:self.jsonObject!)
             XCTAssertEqual(currency.code, "USD")
             print(currency.exchanges.count);
-            XCTAssertEqual(currency.exchanges.count, 168)
+            XCTAssertEqual(currency.exchanges.count, 169)
         }
         catch {
             XCTFail("Error creating currency")
@@ -65,7 +65,7 @@ class CurrencyTests: XCTestCase {
     func testExchange() {
         do {
             let currency = try Currency(jsonObject:self.jsonObject!)
-            XCTAssertEqual(currency.exchanges.count, 168)
+            XCTAssertEqual(currency.exchanges.count, 169)
             XCTAssertEqual(currency.exchanges.first, "AED")
             XCTAssertEqual(currency.exchanges.last, "ZWL")
             XCTAssertEqual(currency.exchange(12.0, code: "AED"), 44.070048)

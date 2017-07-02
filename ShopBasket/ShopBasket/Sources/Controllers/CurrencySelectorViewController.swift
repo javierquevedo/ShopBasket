@@ -34,11 +34,12 @@ class CurrencySelectorViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - Delegation Protocols
     // MARK: TableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath)
+        let cell:CurrencyTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath) as! CurrencyTableViewCell
         
-        cell.textLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
-        print(self.currencyViewModel!.currencyRate(index: indexPath.row))
-        // cell.detailTextLabel!.text = "\(self.currencyViewModel!.currencyRate(index: indexPath.row))"
+        cell.currencyNameLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
+        cell.currencyRateNameLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
+        cell.currencyValueLabel!.text = self.currencyViewModel?.currencyDisplayRate(index:indexPath.row)
+        
         return cell
     }
     

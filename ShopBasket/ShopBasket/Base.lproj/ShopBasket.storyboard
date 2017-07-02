@@ -55,6 +55,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currencyBarButton" destination="wgq-P0-QXe" id="scf-Kb-JKq"/>
                         <segue destination="Baj-z6-d3L" kind="presentation" identifier="CurrencySelectorModal" id="VgG-Hl-tuk"/>
                     </connections>
                 </viewController>
@@ -78,15 +79,15 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" id="7Z3-LE-hoh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" id="7Z3-LE-hoh" customClass="CurrencyTableViewCell" customModule="ShopBasket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Z3-LE-hoh" id="7gD-18-HIc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfo-lL-swT">
-                                                    <rect key="frame" x="321" y="11" width="46" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfo-lL-swT">
+                                                    <rect key="frame" x="321" y="11" width="46" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="46" id="LqA-LV-wFb"/>
                                                     </constraints>
@@ -119,6 +120,11 @@
                                                 <constraint firstItem="Kfo-lL-swT" firstAttribute="leading" secondItem="hlI-Tz-4b0" secondAttribute="trailing" constant="8" id="zIM-kp-fXC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currencyNameLabel" destination="3Dn-a1-air" id="OG0-jJ-7Sv"/>
+                                            <outlet property="currencyRateNameLabel" destination="Kfo-lL-swT" id="8cM-lS-lfs"/>
+                                            <outlet property="currencyValueLabel" destination="hlI-Tz-4b0" id="5jt-3S-pcQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -147,10 +153,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-7V-Mmr">
-                                        <rect key="frame" x="14" y="11" width="40" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-7V-Mmr">
+                                        <rect key="frame" x="14" y="11" width="115" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="of2-Yv-di9"/>
+                                            <constraint firstAttribute="width" constant="115" id="of2-Yv-di9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>

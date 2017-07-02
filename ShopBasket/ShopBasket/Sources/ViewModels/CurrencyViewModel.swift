@@ -28,6 +28,10 @@ class CurrencyViewModel {
         return self.currency.exchanges[index]
     }
     
+    func currencyDisplayRate(index:Int)-> String{
+        return String(format:"%0.2f", self.currencyRate(index: index))
+    }
+    
     func currencyRate(index:Int) -> Double {
         return self.currency.rate(code:self.currency.exchanges[index])!
     }

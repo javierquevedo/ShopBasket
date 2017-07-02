@@ -38,7 +38,6 @@ struct Currency: Exchangeable {
                 rates[exchangeCode.substring(from: index)] = entry
             }
         }
-        rates.removeValue(forKey: code) // Remove self conversion
         self.init(code:code, rates:rates)
     }
 

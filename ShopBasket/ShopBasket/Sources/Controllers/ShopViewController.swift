@@ -13,6 +13,7 @@ class ShopViewController: UIViewController {
     let rateService:JSONRateService = JSONRateService()
     var currencyViewModel :CurrencyViewModel?
 
+    @IBOutlet weak var currencyBarButton: UIBarButtonItem!
     @IBAction func onCurrencyButtonTapped(_ sender: Any) {
         if (currencyViewModel != nil) {
             performSegue(withIdentifier: "CurrencySelectorModal", sender: self)
@@ -26,14 +27,14 @@ class ShopViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // The Rate service provides updates on the currency exchange rates periodically
         rateService.start { (currency, status, error) in
             if let c = self.currencyViewModel {
-            self.currencyViewModel = CurrencyViewModel(currency: currency, code: c.currentCode)
+                c.currency = currency
             }else{
                 self.currencyViewModel = CurrencyViewModel(currency: currency)
-                
             }
-            
         }
     }
     
@@ -52,10 +53,9 @@ class ShopViewController: UIViewController {
             destination.currencyViewModel = self.currencyViewModel
             destination.onSelected = { (code:String) in
                 self.currencyViewModel?.currentCode = code
+                self.currencyBarButton.title = code
             }
         }
     }
-
-    
 }
 
