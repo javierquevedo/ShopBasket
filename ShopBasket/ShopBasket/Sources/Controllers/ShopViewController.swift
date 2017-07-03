@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ShopViewController: UIViewController {
    
@@ -22,7 +23,7 @@ class ShopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +56,25 @@ class ShopViewController: UIViewController {
                 self.currencyViewModel?.currentCode = code
                 self.currencyBarButton.title = code
             }
+        }
+        
+        if segue.identifier == "ShopSpriteKitSegue" {
+            if let skView = segue.destination.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = SKScene(fileNamed: "ShopScene") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    
+                    // Present the scene
+                    skView.presentScene(scene)
+                }
+                
+                skView.ignoresSiblingOrder = true
+                
+                skView.showsFPS = true
+                skView.showsNodeCount = true
+            }
+
         }
     }
 }

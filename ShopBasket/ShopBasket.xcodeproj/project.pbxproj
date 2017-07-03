@@ -13,6 +13,8 @@
 		A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */; };
 		A7552E021F09441C00BAADA2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552E011F09441C00BAADA2 /* ShopViewController.swift */; };
 		A7552E2A1F0ACB8200BAADA2 /* ProductSKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552E291F0ACB8200BAADA2 /* ProductSKSpriteNode.swift */; };
+		A75F54CC1F0AE94B00A966AE /* ShopScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A75F54CB1F0AE94B00A966AE /* ShopScene.sks */; };
+		A75F54CE1F0AF0E100A966AE /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F54CD1F0AF0E100A966AE /* ShopScene.swift */; };
 		A77692DE1F096FD000201309 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77692DD1F096FD000201309 /* CurrencyTableViewCell.swift */; };
 		A77BAC841F079A590023F2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BAC831F079A590023F2CD /* AppDelegate.swift */; };
 		A77BAC891F079A590023F2CD /* ShopBasket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77BAC871F079A590023F2CD /* ShopBasket.storyboard */; };
@@ -54,6 +56,8 @@
 		A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencySelectorViewController.swift; path = Sources/Controllers/CurrencySelectorViewController.swift; sourceTree = "<group>"; };
 		A7552E011F09441C00BAADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopViewController.swift; path = Sources/Controllers/ShopViewController.swift; sourceTree = "<group>"; };
 		A7552E291F0ACB8200BAADA2 /* ProductSKSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductSKSpriteNode.swift; path = Sources/Views/ProductSKSpriteNode.swift; sourceTree = "<group>"; };
+		A75F54CB1F0AE94B00A966AE /* ShopScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ShopScene.sks; path = Sources/Resources/ShopScene.sks; sourceTree = "<group>"; };
+		A75F54CD1F0AF0E100A966AE /* ShopScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopScene.swift; path = Sources/Scenes/ShopScene.swift; sourceTree = "<group>"; };
 		A77692DD1F096FD000201309 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyTableViewCell.swift; path = Sources/Views/CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		A77BAC801F079A590023F2CD /* ShopBasket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopBasket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77BAC831F079A590023F2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,11 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A75F54CA1F0AE8FF00A966AE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A7552E291F0ACB8200BAADA2 /* ProductSKSpriteNode.swift */,
+				A75F54CD1F0AF0E100A966AE /* ShopScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		A77692DA1F096D5C00201309 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A77692DD1F096FD000201309 /* CurrencyTableViewCell.swift */,
-				A7552E291F0ACB8200BAADA2 /* ProductSKSpriteNode.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -133,6 +145,7 @@
 		A77BAC821F079A590023F2CD /* ShopBasket */ = {
 			isa = PBXGroup;
 			children = (
+				A75F54CA1F0AE8FF00A966AE /* Scenes */,
 				A77BACBE1F07A36D0023F2CD /* Protocols */,
 				A77BACB51F079AC70023F2CD /* Services */,
 				A77BACB31F079A7E0023F2CD /* Controllers */,
@@ -195,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A77BAC8A1F079A590023F2CD /* Assets.xcassets */,
+				A75F54CB1F0AE94B00A966AE /* ShopScene.sks */,
 				A77BAC871F079A590023F2CD /* ShopBasket.storyboard */,
 				A77BAC8C1F079A590023F2CD /* LaunchScreen.storyboard */,
 				A77BACB81F079D4D0023F2CD /* currenciesMock.json */,
@@ -331,6 +345,7 @@
 			files = (
 				A77BACB91F079D4D0023F2CD /* currenciesMock.json in Resources */,
 				A77BAC8E1F079A590023F2CD /* LaunchScreen.storyboard in Resources */,
+				A75F54CC1F0AE94B00A966AE /* ShopScene.sks in Resources */,
 				A77BAC8B1F079A590023F2CD /* Assets.xcassets in Resources */,
 				A77BAC891F079A590023F2CD /* ShopBasket.storyboard in Resources */,
 			);
@@ -359,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A791C3211F07A98700A7666E /* Currency.swift in Sources */,
+				A75F54CE1F0AF0E100A966AE /* ShopScene.swift in Sources */,
 				A791C3281F07D75200A7666E /* Basket.swift in Sources */,
 				A7552E2A1F0ACB8200BAADA2 /* ProductSKSpriteNode.swift in Sources */,
 				A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */,

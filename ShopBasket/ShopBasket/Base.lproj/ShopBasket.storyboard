@@ -49,7 +49,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAv-Tm-PuK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <connections>
-                                    <segue destination="HgU-35-Chz" kind="embed" id="5SX-IY-DlG"/>
+                                    <segue destination="HgU-35-Chz" kind="embed" identifier="ShopSpriteKitSegue" id="5SX-IY-DlG"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -221,6 +221,10 @@
         <scene sceneID="nLw-Lq-bFl">
             <objects>
                 <viewController id="HgU-35-Chz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZcD-op-PIe"/>
+                        <viewControllerLayoutGuide type="bottom" id="cwV-4c-UlE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cMB-jn-Squ" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

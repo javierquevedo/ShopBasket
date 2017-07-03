@@ -9,7 +9,6 @@
 import SpriteKit
 
 class ProductSKSpriteNode: SKSpriteNode {
-    
 
     init(product:Product) {
         let texture = SKTexture(imageNamed: "ball")
