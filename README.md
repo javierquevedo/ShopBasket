@@ -11,3 +11,6 @@ Open with XCode and click on Run
 
 ### Acknowledgements ###
 Images from http://icon-icons.com/
+
+### License ###
+Copyright Javier Quevedo 2017
