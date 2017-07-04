@@ -8,15 +8,17 @@
 
 struct Currency: Exchangeable {
     
+    // MARK: - Errors
     enum CurrencyError: String, Error {
         case InvalidJson = "Invalid Json."
     }
-    
+
+    // MARK: - Public Properties
     public let rates:[String: Double]
     public let code:String
-    
     public let exchanges:[String]
-    
+
+    // MARK: - Lifecycle
     init(code:String, rates:[String:Double]) {
         self.rates = rates;
         self.code = code
@@ -41,11 +43,28 @@ struct Currency: Exchangeable {
         self.init(code:code, rates:rates)
     }
 
-    func rate(code:String)->Double? {
+    // MARK: - Public Methods
+    
+    /**
+     Returns the exchange rate for a given currency code
+     
+     @param code Currency code to retrieve the rate for
+     
+     @return The rate, nil if not available
+     */
+    public func rate(code:String)->Double? {
         return self.rates[code]
     }
     
-    func exchange(_ amount:Double, code:String) -> Double? {
+    /**
+     Exchanges an amount from USD to a given Currency Code
+     
+     @param amount The amount to exchange
+     @param code   The target currency code
+     
+     @return The total amount in the target currency
+     */
+    public func exchange(_ amount:Double, code:String) -> Double? {
         var rate = 1.0
         if let c = rates[code] {
            rate = c

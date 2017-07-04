@@ -15,9 +15,12 @@ class ShopViewController: UIViewController {
     var shopScene:ShopScene?
     var shopViewModel:ShopViewModel?
     
+    // MARK: - IBOutlets
     @IBOutlet weak var currencyBarButton: UIBarButtonItem!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var noInternetView: UIStackView!
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,7 @@ class ShopViewController: UIViewController {
             }else{
                 self.shopViewModel = ShopViewModel(currency)
             }
+            self.noInternetView.isHidden = status == .success ? true : false
             self.updatePrice()
         }
     }

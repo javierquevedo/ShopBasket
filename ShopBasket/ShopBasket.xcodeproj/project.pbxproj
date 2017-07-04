@@ -30,6 +30,7 @@
 		A77BACC61F07A3E30023F2CD /* Exchangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BACC51F07A3E30023F2CD /* Exchangeable.swift */; };
 		A77BACC71F07A3E30023F2CD /* Exchangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BACC51F07A3E30023F2CD /* Exchangeable.swift */; };
 		A77BACC91F07A6880023F2CD /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BACC21F07A3D90023F2CD /* Currency.swift */; };
+		A7819BDD1F0C0AE0003729E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E7B41F0BCC90005E6190 /* Constants.swift */; };
 		A791C3211F07A98700A7666E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77BACC21F07A3D90023F2CD /* Currency.swift */; };
 		A791C3231F07BED600A7666E /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A791C3221F07BED600A7666E /* CurrencyTests.swift */; };
 		A791C3281F07D75200A7666E /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A791C3271F07D75200A7666E /* Basket.swift */; };
@@ -411,6 +412,7 @@
 				A7552DFD1F09239800BAADA2 /* BasketTests.swift in Sources */,
 				A77BACC91F07A6880023F2CD /* Currency.swift in Sources */,
 				A7552DFE1F09351F00BAADA2 /* Basket.swift in Sources */,
+				A7819BDD1F0C0AE0003729E3 /* Constants.swift in Sources */,
 				A77BACC71F07A3E30023F2CD /* Exchangeable.swift in Sources */,
 				A77BAC991F079A590023F2CD /* ShopBasketTests.swift in Sources */,
 			);
