@@ -46,7 +46,7 @@ class JSONRateService {
                     completed(currency, .success, error)
             }
             catch {
-                completed(self.getMockCurrency(), .invalidData, error)            }
+                    completed(self.getMockCurrency(), .invalidData, error)            }
         }
         task.resume()
     }
@@ -62,7 +62,9 @@ class JSONRateService {
     private func poll() {
         getCurrency { (currency, status, error) in
             if let handler = self.updatedHandler {
-                handler(currency, status, error)
+                DispatchQueue.main.async {
+                    handler(currency, status, error)
+                }
             }
             if (!self.shouldStop) {
                 DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + self.pollInterval, execute: {

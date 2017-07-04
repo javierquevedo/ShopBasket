@@ -11,7 +11,7 @@ import UIKit
 class CurrencySelectorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Public Properties
-    public var currencyViewModel:CurrencyViewModel?
+    public var shopViewModel:ShopViewModel?
     public var onSelected:((String)->Void)?
     
     // MARK: - IBOutlets
@@ -34,17 +34,15 @@ class CurrencySelectorViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - Delegation Protocols
     // MARK: TableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:CurrencyTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath) as! CurrencyTableViewCell
-        
-        cell.currencyNameLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
-        cell.currencyRateNameLabel!.text = self.currencyViewModel!.currencyCode(index: indexPath.row)
-        cell.currencyValueLabel!.text = self.currencyViewModel?.currencyDisplayRate(index:indexPath.row)
-        
+        let cell:CurrencyTableViewCell = tableView.dequeueReusableCell(withIdentifier: C.CurrencyCellId, for: indexPath) as! CurrencyTableViewCell
+        cell.currencyNameLabel!.text = self.shopViewModel!.currencyCode(index: indexPath.row)
+        cell.currencyRateNameLabel!.text = self.shopViewModel!.currencyCode(index: indexPath.row)
+        cell.currencyValueLabel!.text = self.shopViewModel?.currencyDisplayRate(index:indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let c = self.currencyViewModel {
+        if let c = self.shopViewModel {
             return c.exchangesCount
         }else {
             return 0
@@ -53,7 +51,7 @@ class CurrencySelectorViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let handler = self.onSelected {
-            handler(self.currencyViewModel!.currencyCode(index: indexPath.row))
+            handler(self.shopViewModel!.currencyCode(index: indexPath.row))
         }
         self.dismiss(animated: true, completion: nil)
     }

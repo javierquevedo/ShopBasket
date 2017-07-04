@@ -12,15 +12,13 @@ import SpriteKit
 class ShopViewController: UIViewController {
    
     let rateService:JSONRateService = JSONRateService()
-    var currencyViewModel :CurrencyViewModel?
-
-    @IBOutlet weak var currencyBarButton: UIBarButtonItem!
-    @IBAction func onCurrencyButtonTapped(_ sender: Any) {
-        if (currencyViewModel != nil) {
-            performSegue(withIdentifier: "CurrencySelectorModal", sender: self)
-        }
-    }
+    var shopScene:ShopScene?
+    var shopViewModel:ShopViewModel?
     
+    @IBOutlet weak var currencyBarButton: UIBarButtonItem!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,11 +29,12 @@ class ShopViewController: UIViewController {
         
         // The Rate service provides updates on the currency exchange rates periodically
         rateService.start { (currency, status, error) in
-            if let c = self.currencyViewModel {
-                c.currency = currency
+            if var s = self.shopViewModel {
+                s.set(currency: currency)
             }else{
-                self.currencyViewModel = CurrencyViewModel(currency: currency)
+                self.shopViewModel = ShopViewModel(currency)
             }
+            self.updatePrice()
         }
     }
     
@@ -46,36 +45,70 @@ class ShopViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CurrencySelectorViewController{
-            destination.currencyViewModel = self.currencyViewModel
+            destination.shopViewModel = self.shopViewModel
             destination.onSelected = { (code:String) in
-                self.currencyViewModel?.currentCode = code
+                self.shopViewModel?.currentCode = code
                 self.currencyBarButton.title = code
+                self.updatePrice()
             }
         }
-        
-        if segue.identifier == "ShopSpriteKitSegue" {
+        if segue.identifier ==  C.ShopSpriteKidEmbeddedSegueId{
             if let skView = segue.destination.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = SKScene(fileNamed: "ShopScene") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    
-                    // Present the scene
-                    skView.presentScene(scene)
-                }
-                
+                self.shopScene = ShopSKNodeFactory.shopScene()
+                skView.presentScene(self.shopScene)
                 skView.ignoresSiblingOrder = true
-                
-                skView.showsFPS = true
-                skView.showsNodeCount = true
             }
-
         }
+    }
+    
+    // MARK: - Private Methods
+    func updatePrice() {
+         DispatchQueue.main.async {
+            self.valueLabel?.text = self.shopViewModel?.totalPrice()
+            self.currencyLabel?.text = self.shopViewModel?.currentCode
+        }
+    }
+    
+    func addProduct(_ product:Product) {
+        self.shopViewModel?.addItem(product)
+        self.shopScene?.addProduct(product, touchHandler:self.removeProduct)
+        self.updatePrice()
+    }
+    
+    func removeProduct(_ product:Product) {
+        self.shopViewModel?.removeItem(product)
+        self.updatePrice()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func onCurrencyButtonTapped(_ sender: Any) {
+        if (shopViewModel != nil) {
+            performSegue(withIdentifier: C.CurrencySelectorModalSegueId, sender: self)
+        }
+    }
+    
+    @IBAction func onMilkButtonTapped(_ sender: Any) {
+        self.addProduct(.milk)
+    }
+    
+    @IBAction func onBeansButtonTapped(_ sender: Any) {
+        self.addProduct(.beans)
+    }
+    @IBAction func onEggsButtonTapped(_ sender: Any) {
+        self.addProduct(.eggs)
+    }
+    
+    @IBAction func onPeasButtonTapped(_ sender: Any) {
+        self.addProduct(.peas)
+    }
+
+    // MARK: View
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return [.portrait, .portraitUpsideDown]
     }
 }
 

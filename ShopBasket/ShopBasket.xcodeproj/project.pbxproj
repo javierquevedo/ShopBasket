@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7552DFB1F08D7CB00BAADA2 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFA1F08D7CB00BAADA2 /* CurrencyViewModel.swift */; };
+		A734E7B31F0BCAA4005E6190 /* ShopSKNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E7B21F0BCAA4005E6190 /* ShopSKNodeFactory.swift */; };
+		A734E7B51F0BCC90005E6190 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E7B41F0BCC90005E6190 /* Constants.swift */; };
+		A734E7B71F0BEA63005E6190 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E7B61F0BEA63005E6190 /* ShopViewModel.swift */; };
 		A7552DFD1F09239800BAADA2 /* BasketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFC1F09239800BAADA2 /* BasketTests.swift */; };
 		A7552DFE1F09351F00BAADA2 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A791C3271F07D75200A7666E /* Basket.swift */; };
 		A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */; };
@@ -51,7 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A7552DFA1F08D7CB00BAADA2 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyViewModel.swift; path = Sources/ViewModels/CurrencyViewModel.swift; sourceTree = "<group>"; };
+		A734E7B21F0BCAA4005E6190 /* ShopSKNodeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopSKNodeFactory.swift; path = Sources/Factories/ShopSKNodeFactory.swift; sourceTree = "<group>"; };
+		A734E7B41F0BCC90005E6190 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Sources/Models/Constants.swift; sourceTree = "<group>"; };
+		A734E7B61F0BEA63005E6190 /* ShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopViewModel.swift; path = Sources/ViewModels/ShopViewModel.swift; sourceTree = "<group>"; };
 		A7552DFC1F09239800BAADA2 /* BasketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketTests.swift; sourceTree = "<group>"; };
 		A7552DFF1F0943FF00BAADA2 /* CurrencySelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencySelectorViewController.swift; path = Sources/Controllers/CurrencySelectorViewController.swift; sourceTree = "<group>"; };
 		A7552E011F09441C00BAADA2 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopViewController.swift; path = Sources/Controllers/ShopViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A734E7B11F0BCA74005E6190 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				A734E7B21F0BCAA4005E6190 /* ShopSKNodeFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		A75F54CA1F0AE8FF00A966AE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		A77BAC821F079A590023F2CD /* ShopBasket */ = {
 			isa = PBXGroup;
 			children = (
+				A734E7B11F0BCA74005E6190 /* Factories */,
 				A75F54CA1F0AE8FF00A966AE /* Scenes */,
 				A77BACBE1F07A36D0023F2CD /* Protocols */,
 				A77BACB51F079AC70023F2CD /* Services */,
@@ -183,6 +196,7 @@
 			children = (
 				A77BACC21F07A3D90023F2CD /* Currency.swift */,
 				A791C3271F07D75200A7666E /* Basket.swift */,
+				A734E7B41F0BCC90005E6190 /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -190,7 +204,7 @@
 		A77BACB21F079A720023F2CD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A7552DFA1F08D7CB00BAADA2 /* CurrencyViewModel.swift */,
+				A734E7B61F0BEA63005E6190 /* ShopViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -301,7 +315,7 @@
 				TargetAttributes = {
 					A77BAC7F1F079A590023F2CD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = HXLA8AZ2X7;
+						DevelopmentTeam = 4EE525DQZ4;
 						ProvisioningStyle = Automatic;
 					};
 					A77BAC931F079A590023F2CD = {
@@ -378,9 +392,11 @@
 				A791C3281F07D75200A7666E /* Basket.swift in Sources */,
 				A7552E2A1F0ACB8200BAADA2 /* ProductSKSpriteNode.swift in Sources */,
 				A7552E001F0943FF00BAADA2 /* CurrencySelectorViewController.swift in Sources */,
-				A7552DFB1F08D7CB00BAADA2 /* CurrencyViewModel.swift in Sources */,
+				A734E7B71F0BEA63005E6190 /* ShopViewModel.swift in Sources */,
 				A7552E021F09441C00BAADA2 /* ShopViewController.swift in Sources */,
+				A734E7B51F0BCC90005E6190 /* Constants.swift in Sources */,
 				A77BACC61F07A3E30023F2CD /* Exchangeable.swift in Sources */,
+				A734E7B31F0BCAA4005E6190 /* ShopSKNodeFactory.swift in Sources */,
 				A77BAC841F079A590023F2CD /* AppDelegate.swift in Sources */,
 				A77692DE1F096FD000201309 /* CurrencyTableViewCell.swift in Sources */,
 				A77BACB71F079B4E0023F2CD /* JSONRateService.swift in Sources */,
@@ -542,12 +558,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HXLA8AZ2X7;
+				DEVELOPMENT_TEAM = 4EE525DQZ4;
 				INFOPLIST_FILE = ShopBasket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jqf.ShopBasket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -555,12 +572,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HXLA8AZ2X7;
+				DEVELOPMENT_TEAM = 4EE525DQZ4;
 				INFOPLIST_FILE = ShopBasket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jqf.ShopBasket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

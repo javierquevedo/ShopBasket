@@ -33,7 +33,7 @@ class BasketTests: XCTestCase {
     }
     
     func testAddAndRemoteItems() {
-        var basket:Basket = Basket(currency: self.currency!)
+        var basket:Basket = Basket(self.currency!)
         
         XCTAssertEqual(0, basket.numberOf(.peas), "Should be 0 item")
 
@@ -61,7 +61,7 @@ class BasketTests: XCTestCase {
     }
     
     func testCalculatePrice() {
-        var basket:Basket = Basket(currency: self.currency!)
+        var basket:Basket = Basket(self.currency!)
         basket.addItem(.beans)
         basket.addItem(.eggs)
         basket.addItem(.milk)
@@ -73,7 +73,7 @@ class BasketTests: XCTestCase {
     }
     
     func testCalculatePriceWithExchange() {
-        var basket:Basket = Basket(currency: self.currency!)
+        var basket:Basket = Basket(self.currency!)
         basket.addItem(.beans)
         XCTAssertEqualWithAccuracy(basket.totalPrice("EUR"), 0.638460919, accuracy: 0.000000001, "Total price in a difference currency should be correct")
         basket.addItem(.eggs)

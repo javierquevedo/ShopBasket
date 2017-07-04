@@ -1,16 +1,16 @@
 //
-//  CurrencyViewModel.swift
+//  ShopViewModel.swift
 //  ShopBasket
 //
-//  Created by Javier Quevedo on 02.07.17.
+//  Created by Javier Quevedo on 04.07.17.
 //  Copyright © 2017 Javier Quevedo. All rights reserved.
 //
 
 import Foundation
 
-class CurrencyViewModel {
-    
+struct ShopViewModel {
     public var currency:Currency
+    public var basket:Basket
     public var currentCode:String
     
     public var exchangesCount:Int {
@@ -19,9 +19,10 @@ class CurrencyViewModel {
         }
     }
     
-    init(currency:Currency, code:String = "USD") {
+    init(_ currency:Currency, code:String = "USD") {
         self.currency = currency
         self.currentCode = code
+        self.basket = Basket(self.currency)
     }
     
     func currencyCode(index:Int) -> String {
@@ -36,4 +37,23 @@ class CurrencyViewModel {
         return self.currency.rate(code:self.currency.exchanges[index])!
     }
     
+    mutating func set(currency:Currency) {
+        self.currency = currency
+        self.basket.currency = currency
+    }
+    
+    mutating func addItem(_ product:Product) {
+        self.basket.addItem(product)
+    }
+    
+    mutating func removeItem(_ product:Product) {
+        self.basket.removeItem(product)
+    }
+    
+    func totalPrice()->String {
+        return  String(format:"%0.2f", self.basket.totalPrice(self.currentCode))
+    }
+    
+    
+
 }

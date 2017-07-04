@@ -26,7 +26,7 @@ struct Basket {
     
     public var currency:Currency
     
-    init (currency:Currency) {
+    init (_ currency:Currency) {
         self.currency = currency
     }
 
