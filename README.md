@@ -1,26 +1,13 @@
-# README #
+# **Shop Basket Demo** #
 
-Shop Basket Demo
+### About ###
+Demo project of a Shopping Basked
+* Requires XCode 8 and above
+* Swift 3
+* No frameworks or external tools required
 
-### What is this repository for? ###
-### How do I get set up? ###
+### Run it? ###
+Open with XCode and click on Run
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
-
+### Acknowledgements ###
 Images from http://icon-icons.com/
