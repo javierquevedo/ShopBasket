@@ -25,7 +25,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iss-lI-sPU">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="USD" id="wgq-P0-QXe">
+                                    <barButtonItem enabled="NO" title="USD" id="wgq-P0-QXe">
                                         <connections>
                                             <action selector="onCurrencyButtonTapped:" destination="BYZ-38-t0r" id="Rv9-Fw-tHh"/>
                                         </connections>
@@ -38,7 +38,7 @@
                                     <segue destination="HgU-35-Chz" kind="embed" identifier="ShopSpriteKitSegue" id="5SX-IY-DlG"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-1L-WbF">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sw-1L-WbF">
                                 <rect key="frame" x="306" y="190" width="69" height="287"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQO-vA-Qwx">
@@ -109,13 +109,18 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xvz-kw-9if">
+                                <rect key="frame" x="177" y="69" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xvz-kw-9if" firstAttribute="top" secondItem="jkY-ci-Tbr" secondAttribute="bottom" constant="8" id="G1r-jq-Klt"/>
                             <constraint firstItem="KAv-Tm-PuK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IRi-Es-E3n"/>
                             <constraint firstItem="4sw-1L-WbF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Iao-Xn-zNr"/>
                             <constraint firstItem="jkY-ci-Tbr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MJs-YY-LH4"/>
                             <constraint firstItem="KAv-Tm-PuK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TcS-co-l5u"/>
+                            <constraint firstItem="xvz-kw-9if" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VKe-Sn-dw4"/>
                             <constraint firstItem="jkY-ci-Tbr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VXA-T5-qRP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Iss-lI-sPU" secondAttribute="bottom" id="YOK-LS-Gg0"/>
                             <constraint firstItem="Iss-lI-sPU" firstAttribute="top" secondItem="KAv-Tm-PuK" secondAttribute="bottom" id="Zgd-lf-jIw"/>
@@ -130,8 +135,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonsView" destination="4sw-1L-WbF" id="1Nb-om-din"/>
                         <outlet property="currencyBarButton" destination="wgq-P0-QXe" id="scf-Kb-JKq"/>
                         <outlet property="currencyLabel" destination="hN1-e9-knK" id="ZTH-BP-fQE"/>
+                        <outlet property="loadingIndicatorView" destination="xvz-kw-9if" id="cIV-di-YOp"/>
                         <outlet property="noInternetView" destination="jkY-ci-Tbr" id="QA5-ZT-1mC"/>
                         <outlet property="valueLabel" destination="f6e-PF-j3G" id="EKM-t6-v8j"/>
                         <segue destination="Baj-z6-d3L" kind="presentation" identifier="CurrencySelectorModal" id="VgG-Hl-tuk"/>

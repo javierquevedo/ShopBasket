@@ -20,11 +20,12 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var noInternetView: UIStackView!
+    @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,6 +40,7 @@ class ShopViewController: UIViewController {
             }
             self.noInternetView.isHidden = status == .success ? true : false
             self.updatePrice()
+            self.enableInteraction()
         }
     }
     
@@ -70,6 +72,17 @@ class ShopViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    // Enables the interaction
+    func enableInteraction() {
+        DispatchQueue.main.async {
+            self.currencyBarButton.isEnabled = true
+            self.buttonsView.isUserInteractionEnabled = true
+            self.loadingIndicatorView.stopAnimating()
+            self.loadingIndicatorView.isHidden = true
+        }
+    }
+    
     func updatePrice() {
          DispatchQueue.main.async {
             self.valueLabel?.text = self.shopViewModel?.totalPrice()
