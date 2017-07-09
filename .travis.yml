@@ -2,5 +2,5 @@ language: swift
 os: osx
 osx_image: xcode8.3
 xcode_project: ShopBasket/ShopBasket.xcodeproj
-xcode_scheme: ShopBasket
 xcode_sdk: iphonesimulator10.3
+script: cd ShopBasked && xcodebuild -destination "platform=iOS Simulator,name=iPhone 5s" -scheme ShopBasket test
