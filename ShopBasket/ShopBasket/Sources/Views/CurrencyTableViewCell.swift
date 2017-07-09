@@ -12,4 +12,6 @@ class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var currencyRateNameLabel: UILabel!
     @IBOutlet weak var currencyValueLabel: UILabel!
     @IBOutlet weak var currencyNameLabel: UILabel!
+    kjas dlaks j
+    
 }
