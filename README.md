@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/javierquevedo/ShopBasket.svg?branch=master)](https://travis-ci.org/javierquevedo/ShopBasket)
 # **Shop Basket Demo** #
 
 ### About ###
